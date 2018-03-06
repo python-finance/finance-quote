@@ -18,10 +18,10 @@ def cli():
     pass
 
 @click.command()
-def test():
+def alphavantage():
     """ test """
     app = App()
     app.logger = logger
     # do nothing
 
-cli.add_command(test)
+cli.add_command(alphavantage)
