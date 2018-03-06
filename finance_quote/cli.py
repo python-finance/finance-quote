@@ -24,4 +24,4 @@ def test():
     app.logger = logger
     # do nothing
 
-cli.get_command(cli)
+cli.add_command(test)
