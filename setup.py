@@ -5,17 +5,27 @@ https://packaging.python.org/en/latest/distributing.html
 https://github.com/pypa/sampleproject
 """
 # To use a consistent encoding
-from codecs import open
-from os import path
 
+import re
 # Always prefer setuptools over distutils
+from pathlib import Path
+
 from setuptools import find_packages, setup
 
-here = path.abspath(path.dirname(__file__))
+here = Path(__file__).parent
 
 # Get the long description from the README file
-with open(path.join(here, 'README.md'), encoding='utf-8') as f:
-    long_description = f.read()
+long_description = (here / 'README.md').read_text(encoding='utf-8')
+
+
+def find_version():
+    version_file = (here / 'src' / 'finance_quote' / '__init__.py').read_text(encoding='utf-8')
+    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
+                              version_file, re.M)
+    if version_match:
+        return version_match.group(1)
+    raise RuntimeError("Unable to find version string.")
+
 
 # Arguments marked as "Required" below must be included for upload to PyPI.
 # Fields marked as "Optional" may be commented out.
@@ -40,7 +50,7 @@ setup(
     # For a discussion on single-sourcing the version across setup.py and the
     # project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.0.1',  # Required
+    version=find_version(),  # Required
 
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
@@ -93,7 +103,6 @@ setup(
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
@@ -113,7 +122,7 @@ setup(
     #
     #   py_modules=["my_module"],
     #
-    packages=find_packages(exclude=['contrib', 'docs', 'tests']),  # Required
+    packages=find_packages(include=['src']),  # Required
 
     # This field lists other packages that your project depends on to run.
     # Any package you put here will be installed by pip when your project is
@@ -122,9 +131,14 @@ setup(
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
     # Optional
-    install_requires=['click', 'click_log', 'beautifulsoup4', 'alpha_vantage'],
+    install_requires=[
+        'click',
+        'click_log',
+        'requests',
+        'requests-html',
+    ],
 
-    python_requires='>=3.0',
+    python_requires='>=3.5',
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
@@ -135,10 +149,11 @@ setup(
     # Similar to `install_requires` above, these must be valid existing
     # projects.
 
-    # extras_require={  # Optional
-    #     'dev': ['check-manifest'],
-    #     'test': ['coverage'],
-    # },
+    extras_require={  # Optional
+        'pandas': ['pandas'],
+        'test': ['py', 'coverage'],
+        'doc': ['sphinx'],
+    },
 
     # If there are data files included in your packages that need to be
     # installed, specify them here.
