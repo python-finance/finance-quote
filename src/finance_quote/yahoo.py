@@ -120,7 +120,7 @@ class YahooSource(base.Source):
         crumble_str = match.group(1)
         return crumble_str, cookie_str
 
-    def download_quote(self, symbol, date_from, date_to, tz=None):
+    def get_historical(self, symbol, date_from, date_to, tz=None):
         def normalize(d):
             if isinstance(d, datetime.datetime):
                 pass
@@ -129,7 +129,8 @@ class YahooSource(base.Source):
             else:
                 d = datetime.datetime.strptime(d, "%Y-%m-%d")
             if not d.tzinfo:
-                assert tz
+                pass
+                # assert tz
                 # todo: understand yahoo behavior as even in the browser, I get
                 # weird results ...
                 # d = d.replace(tzinfo=tz)

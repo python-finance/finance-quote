@@ -25,7 +25,7 @@ class Source:
         """Return the latest quote for a symbol"""
         raise NotImplemented
 
-    def get_historical(self, symbol) -> Quote:
+    def get_historical(self, symbol, date_from, date_to, tz=None) -> Quote:
         """Return the historical of quotes for a symbol"""
         raise NotImplemented
 
