@@ -2,6 +2,7 @@ import betamax
 import os
 
 import requests
+import sys
 from betamax_serializers import pretty_json
 
 import finance_quote.base
@@ -19,6 +20,7 @@ with betamax.Betamax.configure() as config:
 
 # create session
 session = requests.Session()
+
 
 # overwrite default session constructor
 finance_quote.base.Session = lambda : session

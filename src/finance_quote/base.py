@@ -1,3 +1,5 @@
+import datetime
+
 import requests
 
 
@@ -32,6 +34,22 @@ class Source:
     def get_symbol(self, symbol) -> Symbol:
         """Return information about a symbol"""
         raise NotImplemented
+
+def normalize(d):
+    if isinstance(d, datetime.datetime):
+        pass
+    elif isinstance(d, datetime.date):
+        d = datetime.datetime.combine(d, datetime.time(0))
+    else:
+        d = datetime.datetime.strptime(d, "%Y-%m-%d")
+    if not d.tzinfo:
+        pass
+        # assert tz
+        # todo: understand yahoo behavior as even in the browser, I get
+        # weird results ...
+        # d = d.replace(tzinfo=tz)
+    return d
+
 
 # can be monkey patched if needed
 Session = requests.Session

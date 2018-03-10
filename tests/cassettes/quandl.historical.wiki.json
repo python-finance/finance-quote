@@ -1,0 +1,103 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2018-03-10T21:15:04",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "User-Agent": [
+            "python-requests/2.18.4"
+          ]
+        },
+        "method": "GET",
+        "uri": "https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?start_date=2018-01-01&end_date=2018-01-15&order=asc"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAAA5xWa2/bNhT9K4S+rAVkWdTDtgwMWNAWW7ECzZpgxVYHASPRMReaVEkpjlf0v++QkhLLCxZjgBSS1+fec5+MvgUVa5jlTbD8FogqWBbzeZ7FRTjIr0td8WAZnJ2dfwg66Q3kg/jz+1/fQ6zY1oPqWnLyXpXklcO/JudGlNyG5K24FxVXFbYXtRSNJUxV5NKwSqhb8ruWLfRhndvSiLoRWsHaO0D0mlRsT3TNVUg24nYTEql3ISmlttwbuffKIakGCi+1niV82k+H3wmr/mptw6tjo/+ySdbakMeQoj6miLx7mAzxEGGJ0mryNzeaaEX4w+SRB6niNuriJZ8YgnJo6mBOxXs1gM4Gn2qfMMIMJyWTZSuZl3JD3ny6OCevVm0cpyUjG8PXP66CTdPUy+l0t9tFpbF1VOrttDa6asvGTitdIgrVOGo1db9PBpsQ2FVADJcwovRaSyQAgoaZW95AdiOZulsFno7/P/Pe0ynrTLxemZXyrxfXnfRyg4y4lnKZEYo0G07q9kaKklR6y4SKyB+6JVt0QKnrvSuybYy4aRtfcGv5VihkiKBQQpWyrbi30ZlURONgyOCxrydC2HJTCiZdpaeQoBgHwro1NdrARr3/vaf/7XrNTONa9bcWNuUPlnwWdwIOiEYgGfdwShPklazhrfI0XhNl3TKFFMo9wMA8E39n0lVKoC/QO63lxhIp7jjZIzfQWkt2S7gx2nS9j3hdC3YcO2SAPzq6MxrzhqC3SB5GLyI/wy2h0PD3vFqSo/aCC7LRy1Irxcvmp6/eF9cFp/fOM7qjxsDUg8twu+HVNcM1FCQxXUzidBIXl0myzIplMo8WlP7prhm+47a5Zvfwi91Ifu3GZ6QCkJbVsyBaLOIJTfAAVLoJV9fu3rLB8kvw1mHC4COuBCy/4E7A8kHv8PeNuxawPt5SB/OP08F844RBjkhvxe97U37f2fPbwag/9JavwgCJ+NpyVe7hbwX/94A0+9q5fylwI11wgzaAsDZo/XYbLNdMWh4GUmwFkqdaKaFhmLJo9u0g6KMVquIPg8yiXs04gRQPbCOuYznN+7sfufryhEYm6TyO6AxLEqUhnRVR0h2wJHmcLfBEcRjjpe49BX0VHlCkgQfkgM+zKM+x0KjotdIwWSxoMcvTEccp8BFJ1pNkWNIom/tTvPCnGFpJQmma5cckL8JHJHnQwZ1WHqXzDp77UxwmaUxndD4fcZyAHlEsAh922sFm1CsV6SAELsX/9mTEcQp8RFIET7mFL7POT9ppIXqazJIZzY5IXoYfktC4S5bvlcz1iove75MC0eeLgibFUa5eAo8IaB9F4d3KFotOOevOiStmnqRJPjuO4wSFEZGfkVlEHWAepbMu17k/4TsLbZ8WeUpHNKfAr678XEtW4yLpZ1qbihuMLbPl4bea+67LiiT5/v0fAAAA//8DAErNqTLvCQAA",
+          "encoding": "utf-8"
+        },
+        "headers": {
+          "CF-RAY": [
+            "3f98cb640f2e2c66-AMS"
+          ],
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "1098"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Sat, 10 Mar 2018 21:15:04 GMT"
+          ],
+          "ETag": [
+            "W/\"d0f89e026f407c998ccfb359f11e6839\""
+          ],
+          "Expect-CT": [
+            "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+          ],
+          "Server": [
+            "cloudflare"
+          ],
+          "Set-Cookie": [
+            "__cfduid=df65a2da369d0b86f4b93a3a3c0dcc1ea1520716503; expires=Sun, 10-Mar-19 21:15:03 GMT; path=/; domain=.quandl.com; HttpOnly"
+          ],
+          "Vary": [
+            "Origin"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Rack-CORS": [
+            "miss; no-origin"
+          ],
+          "X-RateLimit-Limit": [
+            "50"
+          ],
+          "X-RateLimit-Remaining": [
+            "27"
+          ],
+          "X-Request-Id": [
+            "2054c0fa-7267-4cca-b386-5a114d13580f"
+          ],
+          "X-Runtime": [
+            "0.064089"
+          ],
+          "X-XSS-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?start_date=2018-01-01&end_date=2018-01-15&order=asc"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.0"
+}
