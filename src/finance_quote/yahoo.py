@@ -121,23 +121,9 @@ class YahooSource(base.Source):
         return crumble_str, cookie_str
 
     def get_historical(self, symbol, date_from, date_to, tz=None):
-        def normalize(d):
-            if isinstance(d, datetime.datetime):
-                pass
-            elif isinstance(d, datetime.date):
-                d = datetime.datetime.combine(d, datetime.time(0))
-            else:
-                d = datetime.datetime.strptime(d, "%Y-%m-%d")
-            if not d.tzinfo:
-                pass
-                # assert tz
-                # todo: understand yahoo behavior as even in the browser, I get
-                # weird results ...
-                # d = d.replace(tzinfo=tz)
-            return d
 
-        date_from = normalize(date_from)
-        date_to = normalize(date_to)
+        date_from = base.normalize(date_from)
+        date_to = base.normalize(date_to)
         time_stamp_from = int(date_from.timestamp())
         time_stamp_to = int(date_to.timestamp())
 
@@ -165,13 +151,3 @@ class YahooSource(base.Source):
                 for yq in [YahooQuote(datetime.datetime.strptime(data[0], "%Y-%m-%d").date(),
                                       *[Decimal(f) for f in data[1:]])]
                 if date_from.date() <= yq.date <= date_to.date()]
-
-
-if __name__ == '__main__':
-    print(get_latest_quote("KO"))
-
-    print(download_quote('ENGI.PA', '2018-02-26', '2018-03-01', tz=pytz.timezone("CET")))
-
-if __name__ == '__main__':
-    print(get_latest_quote("ENGI.PA"))
-    print(get_latest_quote("AAPL"))

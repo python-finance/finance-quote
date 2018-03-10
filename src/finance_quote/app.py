@@ -24,4 +24,4 @@ class App:
             # handle list of symbols
             pass
         else:
-            raise ValueError(f"Invalid argument sent")
+            raise ValueError("Invalid argument sent")

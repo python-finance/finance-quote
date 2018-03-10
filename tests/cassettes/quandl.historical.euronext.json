@@ -1,0 +1,103 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2018-03-10T21:16:35",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Cookie": [
+            "__cfduid=df65a2da369d0b86f4b93a3a3c0dcc1ea1520716503"
+          ],
+          "User-Agent": [
+            "python-requests/2.18.4"
+          ]
+        },
+        "method": "GET",
+        "uri": "https://www.quandl.com/api/v3/datasets/EURONEXT/ENGI.json?end_date=2018-01-15&start_date=2018-01-01&order=asc"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAAA3SUa2vbMBSG/4rRpw0Uo7tkf9wWtsHWljUbYyUE1VYaU18yye6F0v/eIztZ48JCOCc5ep9zkQ9+QqXtbXA9yp9QVaKcyYxTpQ0+HmyKrnQoR8uzz1/RFL2G+L/wzx/nZ8vfKzhqbTNG2pvKJe+i/n0EXCh8te+rroXDy74rbpMLXxUuJNvOJ5N667sm6XcuWQ6+a91Dn0zC5UOxs+2NS5OPg/euLR7zBCqmyXfrb12fv+ovrK8CTj74IQRXByjs3da7sHPlxsJ0iBFqFoQvSLaiOqcyFzoVRvyJjbt7F/qNvbNVba9rt4Eh3QwBUVeX/xPJBdELTkBUdPXQtJt4EwHlV+hT1GB0vnctuC/VzQ7ct+4+Wht6cL8iETWrwbfdnfNojRE0/neI00L+Euo9wnn/uI/lVlXjkkvnKxdn3HvXVEOD8q2tg8OorpoKhm2HugbC2zbAHTfHwKG7qi3dwzEWeuv7+cAUvpDbteXbOJWHDYDZrl7VDGEqUi6iHQ2V0TKOhTZCcJISrAwlmeYsFZlc4xOYjzAbCT7C4/8MSwUfooA1RAkmGU8VmbNiKjwS0kxFJyehBUgghTAxASOEcSZTKWa8REctODX1MJkMcGIUyTjgWlAupTapZvP6ZuSVGBk9/j7kyrAgykiYl2CZqYxSSlKjZnSGDtIIZ1PZMWKwYkxyWFCCMyoUV4angp7ClI6wJlNpfdKH0lhyzoWKuDZcE65idIZPj0wfOh+tUNPoCnCdCWkmXBlm9Nvqh4szr00LOSWB6xdQUzERcUIhYAgshFyvxwWs7T644/J1voSFz5ENxemrJb6HpGLm+fkFAAD//wMAYWBtsJ8EAAA=",
+          "encoding": "utf-8"
+        },
+        "headers": {
+          "CF-RAY": [
+            "3f98cd9ce9452c66-AMS"
+          ],
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "647"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Sat, 10 Mar 2018 21:16:35 GMT"
+          ],
+          "ETag": [
+            "W/\"18a9cf0fac9db38f881e4fa8ea4a5fa6\""
+          ],
+          "Expect-CT": [
+            "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+          ],
+          "Server": [
+            "cloudflare"
+          ],
+          "Vary": [
+            "Origin"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Rack-CORS": [
+            "miss; no-origin"
+          ],
+          "X-RateLimit-Limit": [
+            "50"
+          ],
+          "X-RateLimit-Remaining": [
+            "26"
+          ],
+          "X-Request-Id": [
+            "626a8d40-88b2-4e15-98a5-464c7b0e1585"
+          ],
+          "X-Runtime": [
+            "0.070134"
+          ],
+          "X-XSS-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://www.quandl.com/api/v3/datasets/EURONEXT/ENGI.json?end_date=2018-01-15&start_date=2018-01-01&order=asc"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.0"
+}
