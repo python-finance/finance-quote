@@ -1,0 +1,17 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+"e1839a8" = {path = ".", extras = ["test"], editable = true}
+
+
+[dev-packages]
+
+"e1839a8" = {extras = ["doc"], path = ".", editable = true}
+"e1839a9" = {extras = ["test"], path = ".", editable = true}
+"e1839a0" = {extras = ["pandas"], path = ".", editable = true}
