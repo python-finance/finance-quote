@@ -5,7 +5,7 @@ python:
 
 install:
 - hash -r
-- pip install pipenv==11.2.2
+- pip install pipenv==11.1.5
 - pipenv install -e .[test]
 
 script:
