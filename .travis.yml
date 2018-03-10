@@ -10,7 +10,7 @@ install:
 
 script:
 - pipenv run python setup.py test
-- pipenv run coverage run --source=piecash setup.py test
+- pipenv run coverage run --source=finance_quote setup.py test
 
 after_success: coveralls
 
