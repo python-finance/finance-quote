@@ -9,8 +9,8 @@ install:
 - pipenv install -e .[test]
 
 script:
-- python setup.py test
-- coverage run --source=piecash setup.py test
+- pipenv run python setup.py test
+- pipenv run coverage run --source=piecash setup.py test
 
 after_success: coveralls
 

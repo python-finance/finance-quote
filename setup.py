@@ -174,7 +174,7 @@ setup(
     package_data={
         '': ['README.md'],
     },
-
+    package_dir={'': 'src'},
     # Although 'package_data' is the preferred approach, in some case you may
     # need to place data files outside of your packages. See:
     # http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files
@@ -200,5 +200,6 @@ setup(
     # http://python-packaging.readthedocs.io/en/latest/non-code-files.html
     include_package_data=True,
     setup_requires=['pytest-runner'],
-    tests_require=['pytest'],
+    tests_require=['pytest', 'pytest-cov'],
+    test_suite="tests",
 )
