@@ -8,6 +8,28 @@ class QuandlQuote(base.Quote):
     QQmap = {}
 
 
+class QuandlQuoteEURONEXT(QuandlQuote):
+    date = None
+    open = None
+    high = None
+    low = None
+    last = None
+    volume = None
+    turnover = None
+
+    def __init__(self, date, open, high, low, last, volume, turnover):
+        self.date = base.normalize(date)
+        self.open = open
+        self.high = high
+        self.low = low
+        self.last = last
+        self.volume = volume
+        self.turnover = turnover
+
+
+QuandlQuote.QQmap[('Date', 'Open', 'High', 'Low', 'Last', 'Volume', 'Turnover')] = QuandlQuoteEURONEXT
+
+
 class QuandlQuoteWIKI(QuandlQuote):
     date = None
     open = None
@@ -63,6 +85,7 @@ QuandlQuote.QQmap[('Date', 'Rate', 'High (est)', 'Low (est)')] = QuandlQuoteCURR
 
 
 def genclass(name, cols):
+    """Function to print a new class for a given dataset and given columns"""
     def clean_col(col):
         return (
             col

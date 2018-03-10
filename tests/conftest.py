@@ -10,7 +10,6 @@ import finance_quote.base
 betamax.Betamax.register_serializer(pretty_json.PrettyJSONSerializer)
 
 record_mode = 'none' if os.environ.get('TRAVIS_GH3') else 'once'
-record_mode = 'once'
 
 with betamax.Betamax.configure() as config:
     config.cassette_library_dir = 'tests/cassettes/'
