@@ -24,6 +24,6 @@ deploy:
   on:
     tags: true
     distributions: sdist bdist_wheel
-    repo: sdementen/finance-quote
+    repo: sdementen/finance-quote-python
     all_branches: master
     condition: $PYTHON_VERSION=3.5
