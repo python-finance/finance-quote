@@ -1,0 +1,103 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2018-03-10T21:14:04",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Cookie": [
+            "__cfduid=d97a22cac3d47dc881af3c4c5b55d4baf1520716442"
+          ],
+          "User-Agent": [
+            "python-requests/2.18.4"
+          ]
+        },
+        "method": "GET",
+        "uri": "https://www.quandl.com/api/v3/datasets/CURRFX/EURUSD.json?order=asc&end_date=2018-01-15&start_date=2018-01-01"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAAA3xU227bOBD9FUJPLWB7ObzTr00W+9AnJwEW7QYGI9GxEEpySSkXFP33HZF2NyqKBQRJczlnZs5Q+l41bnTJj9X2e9U21VYoKqmA1cW/r4fGV9vq+m53d3NVFf8DRi6BT3e73Z9/Y6B3XbanGH1fv5Hr1/ro+kdPdm70iawJUpDnRM40PtWxPY3t0CPon4lSXp/yw98e20T8BR0RTdJxeElkPHry7MLkyXAgQK6nOJC2J3ebmw25GkJwMW3Ib9DocD1xnQuPeJtLzgQxt3WIQ0e6KYztKWCdYYq1Rxak8QmRfR2mxv/kSyvyEIcnH11+7/1LOrmTj3OBhtS+H6ML5MH1T/9R/dU+HnP48/ByLuqiJ3VE4vBGfBpbbMo3myLCH2cVUKPoD9Gno2/2DvdTMQpmTfmawi2YLdVbgI2k8GXW3r8gz949uza4h+D3uCX/E8LWzGDSEJrfJoG1dk3xUphUD2Hq+v28zFRtv1ZXc86q2pVHnuUDsnxEY56nvN+vKuz02zTvHQkbLPCGCePbaea/bTtPbnxskXFVnaLv2qmrtgcXkl9Voe1anK6fQkBEdH06DLG7OM7ttH3jXy++NLo4LicEvJDb982vfpDnM4vDfF1kw4ZRKqxQQlOmINuAZ58Lq6lRaM/CUG6VsFbx+9U7OCtwAKkt0xJ4gRtqBeOWIUWhNxIXpJBOLOC8wBUXUnBjpWbF1tQyJTHd/trdAi7O1algkjOLdbNtwVitGX7A/w+X5+rGCIxJpkVpXkjLpKHaymwzkIJpo6VkC7gpcK7xV2FQniwVo1JQypiRWDZLJ60Gi8MYaxZwW+WwpkIqw43KzaMttUKXtdkCbEKjHsK+xwItWGY5p2butZQGFJIZbfBe4gInx01i4gIOBS4VCCE1cFoGl/PCOA7OCpwD4CIlt3oJPy9doNKI0CJXQ5UUcK4kaM5LHLjmTDKjlvAiO3bHrLIGDGQ4wyNGucJlljWAMYBsGtVQ9/f5AwjulPzl8A+x8RHPt0v1+5/x/OtWXP748S8AAAD//wMAC1lJ3NEFAAA=",
+          "encoding": "utf-8"
+        },
+        "headers": {
+          "CF-RAY": [
+            "3f98c9ec3ccd2c06-AMS"
+          ],
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Length": [
+            "797"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Date": [
+            "Sat, 10 Mar 2018 21:14:03 GMT"
+          ],
+          "ETag": [
+            "W/\"50c196a43d1a9be85456bae561ef2431\""
+          ],
+          "Expect-CT": [
+            "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+          ],
+          "Server": [
+            "cloudflare"
+          ],
+          "Vary": [
+            "Origin"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Rack-CORS": [
+            "miss; no-origin"
+          ],
+          "X-RateLimit-Limit": [
+            "50"
+          ],
+          "X-RateLimit-Remaining": [
+            "28"
+          ],
+          "X-Request-Id": [
+            "6182eccb-0630-44fb-a844-fa36149f4909"
+          ],
+          "X-Runtime": [
+            "0.081399"
+          ],
+          "X-XSS-Protection": [
+            "1; mode=block"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://www.quandl.com/api/v3/datasets/CURRFX/EURUSD.json?order=asc&end_date=2018-01-15&start_date=2018-01-01"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.0"
+}

@@ -2,6 +2,7 @@ import betamax
 import os
 
 import requests
+import sys
 from betamax_serializers import pretty_json
 
 import finance_quote.base
@@ -9,7 +10,6 @@ import finance_quote.base
 betamax.Betamax.register_serializer(pretty_json.PrettyJSONSerializer)
 
 record_mode = 'none' if os.environ.get('TRAVIS_GH3') else 'once'
-record_mode = 'once'
 
 with betamax.Betamax.configure() as config:
     config.cassette_library_dir = 'tests/cassettes/'
@@ -19,6 +19,7 @@ with betamax.Betamax.configure() as config:
 
 # create session
 session = requests.Session()
+
 
 # overwrite default session constructor
 finance_quote.base.Session = lambda : session
