@@ -12,6 +12,12 @@ from pathlib import Path
 
 from setuptools import find_packages, setup
 
+try:
+    # this can fail if sphinx has not yet been installed via setup.py
+    from sphinx.setup_command import BuildDoc
+except ImportError:
+    BuildDoc = None
+
 here = Path(__file__).parent
 
 # Get the long description from the README file
@@ -132,10 +138,11 @@ setup(
     # https://packaging.python.org/en/latest/requirements.html
     # Optional
     install_requires=[
+        'pytz',
         'click',
         'click_log',
         'requests',
-        'requests-html',
+        'requests-html==0.6.6',
     ],
 
     python_requires='>=3.5',
@@ -151,8 +158,8 @@ setup(
 
     extras_require={  # Optional
         'pandas': ['pandas'],
-        'test': ['py', 'coverage'],
-        'doc': ['sphinx'],
+        'test': ['pytest', 'coverage', 'betamax', 'betamax_serializers'],
+        'doc': ['sphinx', 'sphinx_rtd_theme'],
     },
 
     # If there are data files included in your packages that need to be
@@ -188,8 +195,10 @@ setup(
             'quot=finance_quote.cli:cli',
         ],
     },
-
+    cmdclass={'doc': BuildDoc},
     # Include non-code files, listed in MANIFEST.in.
     # http://python-packaging.readthedocs.io/en/latest/non-code-files.html
-    include_package_data=True
+    include_package_data=True,
+    setup_requires=['pytest-runner'],
+    tests_require=['pytest'],
 )
