@@ -1,12 +1,11 @@
 language: python
 python:
-- '3.4'
 - '3.5'
 - '3.6'
 
 install:
 - hash -r
-- pip install pipenv
+- pip install pipenv==11.2.2
 - pipenv install -e .[test]
 
 script:
