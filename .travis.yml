@@ -20,7 +20,7 @@ deploy:
   provider: pypi
   user: sdementen
   password:
-    secure: JDJrFwdiEbyY6T3GE+XJv6lX/EpyjMeADGRKXZKalKebbGXqxG1198DaC0zKi2CwWQ57qv1z2JvCr2xDkw5zn5o/0DFdONnQegz+PtNUP+LvRCqoxo8wYGwYmKGmBSCfXI9j0jsfuE3xqx7KRwHMNGlrfBVETo6fTsngaEqPY3g=
+    secure: ZwMxqhVdDJz2k+olEFo1O6XcicxhIHYJT3hEWIb4OUOC0CJqS98oVzI8jiXrB+/NTZ4az8sX9Yw9etVkqnq+gjmXm9svAlCE8wEjqAYl26w0rPdVGXe+V3O1Slf8IuPMTizromaZYkmdJtx3T1ZfL8J6oxwwkWuHKR/MUa0EABvGQTsWNuo7Xjvt0AzPBKfnZS+lwzCUXjo6jPr25Nwrn/mjslqlFtPe21B0rfKkt+Flc/D9Rfj2/COu0foqnk2N8oL1oP1ED+QGX1K/p39H/xdk96jv7cYRjEkGx9f8RBd5uX0J/SCsmMMkZp2cBoVj2B4AWqxhx/NCz1yH1fBr/PqoZPmci7y4pwOdvLMvLXT4DcnApMa8/RekNVHPlz5mg4Rks+69BiYUtwQXb5FIdCGtJ+/iEt5V5AGLuLStHxqdxDsjipZfc1m3jApH1BmsZh5rwPNjiwFsMQ5wYWB53MpAx2quURL0P1lXdCTGWZwOWWsuHm+y8LTexdjOHl9VKMbzpVp1T/yFFqtc+Hi4vQL3tJqpicNs0ZrwaQpI75jNhDXH1864jSLOdZgD/TfOiN/EjNLQMrPVquxbJsZfekPvcSLiohC99cbKKRMdM7lKJC4clpfp+YmkKHALgvlCg+r3pqnTdvs7tVOMWmxUcWfILVxq19VzlWqNxMTDHlo=
   on:
     tags: true
     distributions: sdist bdist_wheel
