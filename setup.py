@@ -77,15 +77,15 @@ setup(
     #
     # This field corresponds to the "Home-Page" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#home-page-optional
-    url='https://github.com/MisterY/finance-quote-python',  # Optional
+    url='https://github.com/python-finance/finance-quote',  # Optional
 
     # This should be your name or the name of the organization which owns the
     # project.
-    author='Alen Siljak',  # Optional
+    author='Python Finance',  # Optional
 
     # This should be a valid email address corresponding to the author listed
     # above.
-    author_email='alen.siljak@gmx.com',  # Optional
+    #author_email='no email',  # Optional
 
     license='GPL version 3',
 

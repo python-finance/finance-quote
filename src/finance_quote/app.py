@@ -13,6 +13,13 @@ class App:
         self.logger = logging.getLogger(__name__)
         self.modules = ['alphavantage']
 
+    def download(self, provider: str, symbols):
+        """ A generic method that takes the provider as a string parameter """
+        if provider.lower() == "alphavantage":
+            self.alphavantage(symbols)
+        else:
+            raise ValueError(f"Provider not supported: {provider}")
+
     def alphavantage(self, symbols):
         """ example using av as provider """
         # TODO invoke av module for fetching price
