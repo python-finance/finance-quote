@@ -27,7 +27,7 @@ class QuandlQuoteEURONEXT(QuandlQuote):
         self.turnover = turnover
 
 
-QuandlQuote.QQmap[('Date', 'Open', 'High', 'Low', 'Last', 'Volume', 'Turnover')] = QuandlQuoteEURONEXT
+QuandlQuote.QQmap['EURONEXT'] = QuandlQuoteEURONEXT
 
 
 class QuandlQuoteWIKI(QuandlQuote):
@@ -62,10 +62,7 @@ class QuandlQuoteWIKI(QuandlQuote):
         self.adj_volume = adj_volume
 
 
-QuandlQuote.QQmap[(
-    'Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Ex-Dividend', 'Split Ratio', 'Adj. Open', 'Adj. High',
-    'Adj. Low',
-    'Adj. Close', 'Adj. Volume')] = QuandlQuoteWIKI
+QuandlQuote.QQmap['WIKI'] = QuandlQuoteWIKI
 
 
 class QuandlQuoteCURRFX(QuandlQuote):
@@ -81,11 +78,12 @@ class QuandlQuoteCURRFX(QuandlQuote):
         self.low_est = low_est
 
 
-QuandlQuote.QQmap[('Date', 'Rate', 'High (est)', 'Low (est)')] = QuandlQuoteCURRFX
+QuandlQuote.QQmap['CURRFX'] = QuandlQuoteCURRFX
 
 
 def genclass(name, cols):
     """Function to print a new class for a given dataset and given columns"""
+
     def clean_col(col):
         return (
             col
@@ -110,7 +108,7 @@ def genclass(name, cols):
     for c in ncols:
         kls.append("        self.{c} = {c}".format(c=c))
     kls.append("")
-    kls.append("QuandlQuote.QQmap[{cols}] = QuandlQuote{name}".format(cols=cols, name=name))
+    kls.append("QuandlQuote.QQmap['{name}'] = QuandlQuote{name}".format(name=name))
 
     print("\n".join(kls))
 
@@ -120,11 +118,11 @@ class QuandlSource(base.Source):
 
     QUANDL_BASE_URL = "https://www.quandl.com/api/v3/datasets/{symbol}.json"
 
-    def __init__(self, session=None):
-        self.session = session if session else base.Session()
-
     def get_historical(self, symbol, date_from, date_to, tz=None):
-        assert len(symbol.split("/")) == 2, "Quandl expect a symbol under the form XXX/YYY"
+        try:
+            dataset, dataseries = symbol.split("/")
+        except:
+            raise base.SymbolNotFoundError("Quandl expect a symbol under the form XXX/YYY")
 
         date_from = base.normalize(date_from)
         date_to = base.normalize(date_to)
@@ -143,10 +141,10 @@ class QuandlSource(base.Source):
         cols = tuple(info["column_names"])
 
         try:
-            QQ = QuandlQuote.QQmap[cols]
+            QQ = QuandlQuote.QQmap[dataset]
         except KeyError:
             print("dataset not yet supported, please copy this in quandly.py")
-            genclass(symbol.split("/")[0], cols)
+            genclass(dataset, cols)
             raise KeyError
 
         return [QQ(*r) for r in info["data"]]

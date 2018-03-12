@@ -22,6 +22,8 @@ class Quote:
 
 class Source:
     """Class to represent a source of symbols or quotes"""
+    def __init__(self, session=None):
+        self.session = session if session else Session()
 
     def get_latest(self, symbol) -> Quote:
         """Return the latest quote for a symbol"""
