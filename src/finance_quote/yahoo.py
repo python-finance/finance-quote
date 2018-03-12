@@ -58,9 +58,6 @@ class YahooSource(base.Source):
 
     YAHOO_BASE_URL = "https://query1.finance.yahoo.com/v7/finance"
 
-    def __init__(self, session=None):
-        self.session = session if session else base.Session()
-
     def get_symbol(self, symbol):
         resp = self.session.get("{}/quote".format(self.YAHOO_BASE_URL),
                                 params={
