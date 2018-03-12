@@ -77,15 +77,15 @@ setup(
     #
     # This field corresponds to the "Home-Page" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#home-page-optional
-    url='https://github.com/MisterY/finance-quote-python',  # Optional
+    url='https://github.com/python-finance/finance-quote',  # Optional
 
     # This should be your name or the name of the organization which owns the
     # project.
-    author='Alen Siljak',  # Optional
+    author='Python Finance',  # Optional
 
     # This should be a valid email address corresponding to the author listed
     # above.
-    author_email='alen.siljak@gmx.com',  # Optional
+    #author_email='no email',  # Optional
 
     license='GPL version 3',
 
@@ -108,8 +108,6 @@ setup(
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
 
@@ -145,7 +143,7 @@ setup(
         'requests-html==0.6.6',
     ],
 
-    python_requires='>=3.5',
+    python_requires='>=3.6',
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
