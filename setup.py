@@ -17,24 +17,25 @@ from setuptools import find_packages, setup
 try:
     # this can fail if sphinx has not yet been installed via setup.py
     from sphinx.setup_command import BuildDoc
+    class CustomBuildDoc(BuildDoc):
+        def run(self):
+            p = Path("docs/src")
+
+            # copy files to source folder
+            for f in ["DEVELOPER.md","CHANGELOG.md"]:
+
+                shutil.copy(f, str(p))
+
+            # run sphinx
+            super().run()
+
+            # remove the file
+            for f in ["DEVELOPER.md","CHANGELOG.md"]:
+                os.remove(str(p / f))
+
 except ImportError:
-    BuildDoc = None
+    CustomBuildDoc = None
 
-class CustomBuildDoc(BuildDoc):
-    def run(self):
-        p = Path("docs/src")
-
-        # copy files to source folder
-        for f in ["DEVELOPER.md","CHANGELOG.md"]:
-
-            shutil.copy(f, str(p))
-
-        # run sphinx
-        super().run()
-
-        # remove the file
-        for f in ["DEVELOPER.md","CHANGELOG.md"]:
-            os.remove(str(p / f))
 
 
 here = Path(__file__).parent
