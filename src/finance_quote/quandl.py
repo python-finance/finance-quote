@@ -127,7 +127,10 @@ class QuandlSource(base.Source):
         date_from = base.normalize(date_from)
         date_to = base.normalize(date_to)
 
-        resp = self.session.get(self.QUANDL_BASE_URL.format(symbol=symbol),
+
+        url = self.QUANDL_BASE_URL.format(symbol=symbol)
+        self.logger.info("calling {url}".format(url))
+        resp = self.session.get(url,
                                 params={
                                     "start_date": date_from.date().isoformat(),
                                     "end_date": date_to.date().isoformat(),
@@ -143,8 +146,8 @@ class QuandlSource(base.Source):
         try:
             QQ = QuandlQuote.QQmap[dataset]
         except KeyError:
-            print("dataset not yet supported, please copy this in quandly.py")
+            self.logger.error("dataset not yet supported, please copy this in quandly.py")
             genclass(dataset, cols)
-            raise KeyError
+            raise
 
         return [QQ(*r) for r in info["data"]]
