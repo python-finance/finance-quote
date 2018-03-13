@@ -104,12 +104,12 @@ class YahooSource(base.Source):
             data['regularMarketVolume'],
         )
 
-    CRUMBLE_LINK = 'https://finance.yahoo.com/quote/{0}/history?p={0}'
+    CRUMBLE_LINK = 'https://finance.yahoo.com/quote/{symbol}/history'
     CRUMBLE_REGEX = r'CrumbStore":{"crumb":"(.*?)"}'
     QUOTE_LINK = 'https://query1.finance.yahoo.com/v7/finance/download/{}?period1={}&period2={}&interval=1d&events=history&crumb={}'
 
-    def get_crumble_and_cookie(self, symbol):
-        link = self.CRUMBLE_LINK.format(symbol)
+    def _get_crumble_and_cookie(self, symbol):
+        link = self.CRUMBLE_LINK.format(symbol=symbol)
         response = requests.get(link)
         cookie_str = response.headers["set-cookie"]
 
@@ -125,9 +125,9 @@ class YahooSource(base.Source):
         time_stamp_to = int(date_to.timestamp())
 
         for i in range(self.MAX_ATTEMPT):
-            logging.info("{} attempt to download quotes for symbol {} from yahoo".format(i, symbol))
+            self.logger.info("{} attempt to download quotes for symbol {} from yahoo".format(i, symbol))
 
-            crumble_str, cookie_str = self.get_crumble_and_cookie(symbol)
+            crumble_str, cookie_str = self._get_crumble_and_cookie(symbol)
 
             link = self.QUOTE_LINK.format(symbol, time_stamp_from, time_stamp_to, crumble_str)
 
