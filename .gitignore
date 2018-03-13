@@ -1,5 +1,6 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+.pytest_cache
 *.py[cod]
 *$py.class
 
@@ -81,6 +82,7 @@ celerybeat-schedule
 
 # dotenv
 .env
+Pipfile.lock
 
 # virtualenv
 .venv
@@ -93,6 +95,12 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# VS project
+.vscode/
+
+# pycharm project
+.idea
 
 # mkdocs documentation
 /site
