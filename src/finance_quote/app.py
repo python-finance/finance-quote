@@ -18,7 +18,7 @@ class App:
         if provider.lower() == "alphavantage":
             self.alphavantage(symbols)
         else:
-            raise ValueError(f"Provider not supported: {provider}")
+            raise ValueError("Provider not supported: {provider}".format(provider=provider))
 
     def alphavantage(self, symbols):
         """ example using av as provider """
