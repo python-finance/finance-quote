@@ -129,7 +129,7 @@ class QuandlSource(base.Source):
 
 
         url = self.QUANDL_BASE_URL.format(symbol=symbol)
-        self.logger.info("calling {url}".format(url))
+        self.logger.info("calling {url}".format(url=url))
         resp = self.session.get(url,
                                 params={
                                     "start_date": date_from.date().isoformat(),
