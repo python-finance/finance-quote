@@ -1,4 +1,5 @@
 import datetime
+import logging
 
 import requests
 
@@ -6,36 +7,34 @@ import requests
 class FinanceQuoteError(Exception):
     pass
 
+
 class SymbolNotFoundError(FinanceQuoteError):
     pass
 
+
 class SourceConnectionError(FinanceQuoteError):
     pass
+
 
 class Symbol:
     """Class to represent a symbol (currency, stock, index, ...)"""
     pass
 
+
 class Quote:
-    """Class to represent a quote (price, ...)"""
-    def __init__(self):
-        self.datetime: datetime = None
-        self.namespace: str = None
-        self.symbol: str = None
-        self.value: Decimal = Decimal(0)
-        self.currency: str = None
+    """Class to represent a quote (price, ...). Each provider may have a different format"""
+    pass
 
-    def __repr__(self):
-        symbol = f"{self.namespace}:{self.symbol}" if self.namespace else self.symbol
-        symbol = f"{symbol:<13}"
-
-        value = f"{self.value:>6}"
-        return f"<Quote ('{symbol}',date:{self.datetime},value:{value},currency:{self.currency})>"
 
 class Source:
     """Class to represent a source of symbols or quotes"""
+
     def __init__(self, session=None):
+        # use the session given in argument or create a new session if not
         self.session = session if session else Session()
+
+        # assign a logger
+        self.logger = logging.getLogger(self.__class__.__name__)
 
     def get_latest(self, symbol) -> Quote:
         """Return the latest quote for a symbol"""
@@ -48,6 +47,7 @@ class Source:
     def get_symbol(self, symbol) -> Symbol:
         """Return information about a symbol"""
         raise NotImplemented
+
 
 def normalize(d):
     if isinstance(d, datetime.datetime):
