@@ -6,7 +6,9 @@ import sys
 from betamax_serializers import pretty_json
 
 import finance_quote.base
+import logging
 
+logging.basicConfig(level=logging.WARNING)
 betamax.Betamax.register_serializer(pretty_json.PrettyJSONSerializer)
 
 record_mode = 'none' if os.environ.get('TRAVIS_GH3') else 'once'
