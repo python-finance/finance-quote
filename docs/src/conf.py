@@ -18,16 +18,19 @@
 
 
 # -- Project information -----------------------------------------------------
+from recommonmark.parser import CommonMarkParser
+from recommonmark.transform import AutoStructify
+
+import finance_quote
 
 project = 'finance-quote'
-copyright = '2018, alen sijak'
-author = 'alen sijak'
+copyright = '2018, alen sijak, sdementen'
+author = 'alen sijak, sdementen'
 
 # The short X.Y version
-version = ''
+version = finance_quote.__version__
 # The full version, including alpha/beta/rc tags
-release = ''
-
+release = finance_quote.__version__
 
 # -- General configuration ---------------------------------------------------
 
@@ -48,8 +51,9 @@ templates_path = ['_templates']
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-# source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
+source_parsers = {'.md': CommonMarkParser}
+source_suffix = ['.md', '.rst']
+# source_suffix = '.rst'
 
 # The master toctree document.
 master_doc = 'index'
@@ -68,7 +72,6 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
-
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -104,7 +107,6 @@ html_static_path = ['_static']
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'finance-quotedoc'
 
-
 # -- Options for LaTeX output ------------------------------------------------
 
 latex_elements = {
@@ -133,7 +135,6 @@ latex_documents = [
      'alen sijak', 'manual'),
 ]
 
-
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
@@ -142,7 +143,6 @@ man_pages = [
     (master_doc, 'finance-quote', 'finance-quote Documentation',
      [author], 1)
 ]
-
 
 # -- Options for Texinfo output ----------------------------------------------
 
@@ -155,5 +155,11 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
-
 # -- Extension configuration -------------------------------------------------
+# At the bottom of conf.py
+def setup(app):
+    app.add_config_value('recommonmark_config', {
+            'url_resolver': lambda url: github_doc_root + url,
+            'auto_toc_tree_section': 'Contents',
+            }, True)
+    app.add_transform(AutoStructify)

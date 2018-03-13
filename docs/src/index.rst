@@ -1,10 +1,18 @@
-.. finance-quote documentation master file, created by
-   sphinx-quickstart on Wed Mar  7 05:39:07 2018.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 Welcome to finance-quote's documentation!
 =========================================
+
+
+:Release: |version|
+:Date: |today|
+:Authors: python-finance
+:Project page: https://github.com/python-finance/quote-finance
+
+.. toctree::
+   :maxdepth: 2
+
+   CHANGELOG.md
+   installation.md
+   DEVELOPER.md
 
 .. toctree::
    :maxdepth: 2

@@ -8,8 +8,10 @@ https://github.com/pypa/sampleproject
 
 import re
 # Always prefer setuptools over distutils
+import shutil
 from pathlib import Path
 
+import os
 from setuptools import find_packages, setup
 
 try:
@@ -17,6 +19,23 @@ try:
     from sphinx.setup_command import BuildDoc
 except ImportError:
     BuildDoc = None
+
+class CustomBuildDoc(BuildDoc):
+    def run(self):
+        p = Path("docs/src")
+
+        # copy files to source folder
+        for f in ["DEVELOPER.md","CHANGELOG.md"]:
+
+            shutil.copy(f, str(p))
+
+        # run sphinx
+        super().run()
+
+        # remove the file
+        for f in ["DEVELOPER.md","CHANGELOG.md"]:
+            os.remove(str(p / f))
+
 
 here = Path(__file__).parent
 
@@ -108,6 +127,8 @@ setup(
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
 
@@ -143,7 +164,7 @@ setup(
         'requests-html==0.6.6',
     ],
 
-    python_requires='>=3.6',
+    python_requires='>=3.5',
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
@@ -157,7 +178,7 @@ setup(
     extras_require={  # Optional
         'pandas': ['pandas'],
         'test': ['pytest', 'coverage', 'betamax', 'betamax_serializers'],
-        'doc': ['sphinx', 'sphinx_rtd_theme'],
+        'doc': ['sphinx', 'sphinx_rtd_theme', 'recommonmark'],
     },
 
     # If there are data files included in your packages that need to be
@@ -193,7 +214,7 @@ setup(
             'quot=finance_quote.cli:cli',
         ],
     },
-    cmdclass={'doc': BuildDoc},
+    cmdclass={'doc': CustomBuildDoc},
     # Include non-code files, listed in MANIFEST.in.
     # http://python-packaging.readthedocs.io/en/latest/non-code-files.html
     include_package_data=True,
